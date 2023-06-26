@@ -20,9 +20,18 @@ import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import InputBase from '@mui/material/InputBase';
+import Button from '@mui/material/Button';
 import { AccountCircle } from '@mui/icons-material';
 import KeyboardDoubleArrowLeftOutlinedIcon from '@mui/icons-material/KeyboardDoubleArrowLeftOutlined';
 import Home from './components/Home';
+import {PiCirclesFourLight} from 'react-icons/pi';
+import lamp from './components/assets/lamp.png'
+import { Card, CardContent, Typography } from '@mui/material';
+import {IoIosNotificationsOutline} from 'react-icons/io';
+import {TbMessageCircleQuestion} from 'react-icons/tb';
+import {BsCalendarWeek} from 'react-icons/bs';
+import mask from './components/assets/Mask.png';
+import {AiOutlineDown} from 'react-icons/ai'
 
 
 const drawerWidth = 240;
@@ -140,7 +149,20 @@ export default function App() {
             </Box>
 
             <Box style={{color:'black', marginLeft:'auto'}}>
-              <AccountCircle />
+              <Box style={{display:'flex',paddingRight:20,}}>
+               <Box style={{paddingRight:20,fontSize:25}}> <BsCalendarWeek /></Box>
+               <Box style={{paddingRight:20,fontSize:25}}> <TbMessageCircleQuestion /></Box>
+                <Box style={{paddingRight:60,fontSize:25}}><IoIosNotificationsOutline /></Box>
+                <Box style={{paddingRight:20}}>
+                  <Typography>Kundan</Typography>
+                  <Typography>Kundan</Typography>
+                </Box>
+                <Box style={{display:'flex'}}>
+                  <Box style={{paddingRight:10}}><img src={mask} /></Box>
+                 <Box sx={{mt:1.5}}><AiOutlineDown/></Box>
+                </Box>
+              </Box>
+              
             </Box>
 
            
@@ -159,34 +181,58 @@ export default function App() {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <List>
-          
-        </List>
-        <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
+        <Box style={{paddingLeft:'1.5rem',paddingTop:'1.5rem'}}>
+          <Box>
+            <Button sx={{marginRight:'auto',color:'#787486'}} variant="text" startIcon={<PiCirclesFourLight />}>
+              Home
+            </Button>
+          </Box>
+          <Box>
+            <Button sx={{marginRight:'auto',color:'#787486'}} variant="text" startIcon={<PiCirclesFourLight />}>
+            Messages
+            </Button>
+          </Box>
+          <Box>
+            <Button sx={{marginRight:'auto',color:'#787486'}} variant="text" startIcon={<PiCirclesFourLight />}>
+              Tasks
+            </Button>
+          </Box>
+          <Box>
+            <Button sx={{marginRight:'auto',color:'#787486'}} variant="text" startIcon={<PiCirclesFourLight />}>
+               Members
+            </Button>
+          </Box>
+          <Box>
+            <Button sx={{marginRight:'auto',color:'#787486'}} variant="text" startIcon={<PiCirclesFourLight />}>
+              Settings
+            </Button>
+          </Box>
+         
+        </Box>
+        <Divider sx={{alignSelf:'center'}} width='90%' />
+        
+        <Box style={{marginTop:'auto'}}>
+         <Box >
+            <Box style={{height:80,width:80, backgroundColor:'#F5F5F5',borderRadius:'50%',marginBottom:-38,marginRight:'auto',marginLeft:'auto'}}>
+                
+              </Box>
+         </Box>
+          <Box style={{height:200,width:206, backgroundColor:'#F5F5F5',borderRadius:10,marginBottom:10,marginRight:'auto',marginLeft:'auto'}}>
+            <Box style={{display:'flex',alignItem:'center'}}><img style={{marginTop:-15,marginLeft:'45%'}} src={lamp} />
+            </Box>
+
+            <Box style={{marginTop:10,marginLeft:'15%'}}>
+               <Typography variant="h6" component="div">
+                  Thoughts Time
+               </Typography>
+            </Box>
+            <Box style={{marginTop:10,marginLeft:'15%'}}>
+             <Typography> jhgwdygqfjhbfbwjwfbk</Typography>
+              <Typography>wjfbkuxgzxgzg</Typography>
+            </Box>
+           
+          </Box>
+        </Box>
       </Drawer>
       
       <Home />
